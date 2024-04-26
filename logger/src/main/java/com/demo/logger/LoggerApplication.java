@@ -1,13 +1,13 @@
-package com.database.employee;
+package com.demo.logger;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EmployeeApplication {
+public class LoggerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EmployeeApplication.class, args);
+		SpringApplication.run(LoggerApplication.class, args);
 	}
 
 }
