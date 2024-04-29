@@ -5,6 +5,8 @@ import com.spring.validation.entity.Student;
 import com.spring.validation.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,13 +19,13 @@ public class StudentController {
     private StudentService studentService;
 
     @RequestMapping("/all")
-    public List<Student> getStudents(){
-        return studentService.getStudents();
+    public ResponseEntity<List<Student>>getStudents(){
+        return ResponseEntity.ok(studentService.getStudents());
     }
 
     @PostMapping("/add")
-    public Student addStudent(@Valid @RequestBody StudentDTO studentDTO){
-        return studentService.addStudent(studentDTO);
+    public ResponseEntity<Student> addStudent(@Valid @RequestBody StudentDTO studentDTO){
+        return new ResponseEntity<>(studentService.addStudent(studentDTO), HttpStatus.CREATED);
     }
 
 }
